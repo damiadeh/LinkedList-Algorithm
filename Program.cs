@@ -27,7 +27,6 @@ namespace LinkedList
                 Console.WriteLine("8. Insert a node in a given position");
                 Console.WriteLine("9. Delete first node");
                 Console.WriteLine("10. Delete last node");
-                Console.WriteLine("19. Quit");
 
                 Console.WriteLine("Enter your choice");
                 choice = Convert.ToInt32(Console.ReadLine());
