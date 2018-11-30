@@ -36,7 +36,7 @@ namespace LinkedList.LinkedListTypes
             }
             Console.Write("List contains : ");
             n = start;
-            while(n != null)
+            while(n.link != null)
             {
                 Console.Write(n.info + " ");
                 n =n.link;
@@ -82,12 +82,13 @@ namespace LinkedList.LinkedListTypes
             Node temp = new Node(i);
             Node n;
             if(start == null){
+                temp.link = start;
                 start = temp;
                 Console.WriteLine("Node was inserted in the begining since the list is empty");
                 return;
             }
             n = start;
-            while(n != null){
+            while(n.link != null){
                 n = n.link;
             }
             n.link = temp;
