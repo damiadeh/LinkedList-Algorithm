@@ -94,5 +94,98 @@ namespace LinkedList.LinkedListTypes
             n.link = temp;
             Console.WriteLine("--Inserted");
         }
+
+        public void InsertAfterNode(int i, int x){
+            Node temp = new Node(i);
+            Node n;
+            if(start == null){
+                temp.link = start;
+                start = temp;
+                Console.WriteLine("Node was inserted in the begining since the list is empty");
+                return;
+            }
+            n = start;
+            while(n.link != null){
+                if(n.info == x){
+                    break;
+                }
+                n = n.link;
+            }
+            if(n.link == null){
+                Console.WriteLine("Node[element] not found. Try again");
+                return;
+            }else{
+                temp.link = n.link;
+                n.link = temp;
+            Console.WriteLine("Node inserted after the "+ x +" element");
+            }   
+        }
+
+        public void InsertBeforeNode(int i, int x){
+            Node temp = new Node(i);
+            Node n;
+            if(start == null){
+                temp.link = start;
+                start = temp;
+                Console.WriteLine("Node was inserted in the begining since the list is empty");
+                return;
+            }
+            n = start;
+            while(n.link != null){
+                if(n.link.info == x){
+                    break;
+                }
+                n = n.link;
+            }
+            if(n.link == null){
+                Console.WriteLine("Node[element] not found. Try again");
+                return;
+            }else{
+                temp.link = n.link;
+                n.link = temp;
+            Console.WriteLine("Node inserted before the "+ x +" element");
+            }   
+        }
+
+        public void InsertNodeSpecific(int i, int x){
+            int count = 0; 
+            Node temp = new Node(i);
+            Node n;
+            if(start == null){
+                temp.link = start;
+                start = temp;
+                Console.WriteLine("Node was inserted in the begining since the list is empty");
+                return;
+            }
+            n = start;
+            if(x == 1){
+                temp.link = start;
+                start = temp;
+                Console.WriteLine("Node inserted in position "+ x);
+                return;
+            }
+            if(x == 0){
+                Console.WriteLine("0 is not a valid position. retry");
+            }
+            for(int j = 1; j < x-1 && n.link != null; j++){
+                n = n.link;
+            }
+            while(n.link != null){
+                if(count < x){
+                    break;
+                }
+                count++;
+                n = n.link;
+            }
+            if(n.link == null){
+                Console.WriteLine("Node[element] not found. Try again");
+                return;
+            }else{
+
+                temp.link = n.link;
+                n.link = temp;
+            Console.WriteLine("Node inserted in position "+ x);
+            }   
+        }
     }
 }

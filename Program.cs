@@ -22,8 +22,8 @@ namespace LinkedList
                 Console.WriteLine("3. Search for an element");
                 Console.WriteLine("4. Insert in the begining/empty list");
                 Console.WriteLine("5. Insert a node at the end of the list");
-                Console.WriteLine("6. Insert a node before a specified node");
-                Console.WriteLine("7. Insert a node after a specified node");
+                Console.WriteLine("6. Insert a node after a specified node");
+                Console.WriteLine("7. Insert a node before a specified node");
                 Console.WriteLine("8. Insert a node in a given position");
                 Console.WriteLine("9. Delete first node");
                 Console.WriteLine("10. Delete last node");
@@ -55,6 +55,27 @@ namespace LinkedList
                         Console.WriteLine("Enter the element to insert to the list:");
                         data = Convert.ToInt32(Console.ReadLine());
                         list.InsertAtEnd(data);
+                        break;
+                    case 6:
+                        Console.WriteLine("Enter the element to insert to the list:");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter the node[element] you want to insert it after:");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        list.InsertAfterNode(data, a);
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter the element to insert to the list:");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter the node[element] you want to insert it before:");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        list.InsertBeforeNode(data, a);
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter the element to insert to the list:");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter the position you want to insert it:");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        list.InsertNodeSpecific(data, a);
                         break;
                     default:
                         Console.WriteLine("Wrong Choice");
