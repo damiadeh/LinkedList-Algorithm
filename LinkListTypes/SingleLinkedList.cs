@@ -16,8 +16,11 @@ namespace LinkedList.LinkedListTypes
             int i,n,data;
 
             Console.WriteLine("Enter number of nodes to insert:");
-            n = Convert.ToInt32(Console.ReadLine());
-
+            try{
+                n = Convert.ToInt32(Console.ReadLine());
+            }catch(Exception){
+                return;
+            }
             if(n == 0){
                 return;
             }          
@@ -186,6 +189,76 @@ namespace LinkedList.LinkedListTypes
                 n.link = temp;
             Console.WriteLine("Node inserted in position "+ x);
             }   
+        }
+
+        public void DeleteFirstNode()
+        {
+            if(start != null)
+            {
+                start = start.link;
+                Console.WriteLine("First node has been deleted successfully");
+            }else{
+                Console.WriteLine("Action can't be executed, The link is empty");
+            }
+        }
+
+        public void DeleteLastNode()
+        {
+            if(start == null){
+                Console.WriteLine("Action can't be executed, The link is empty");
+                return;
+            }
+            if(start.link == null) {
+                start = null;
+                Console.WriteLine("Success, the only node in the list has been deleted");
+                return;
+            }
+            Node n = start;
+            while(n.link.link != null){
+                n = n.link;
+            }
+            n.link = null;
+            Console.WriteLine("Last node has been deleted successfully");
+        }
+
+        public void DeleteNode(int i)
+        {
+            if(start == null){
+                Console.WriteLine("Action can't be executed, The link is empty");
+                return;
+            }
+            if(start.info == i){
+                start = start.link;
+            }
+            Node n = start;
+            while(n.link != null){
+                if(n.link.info == i) break;
+                n = n.link;
+            }
+            if(n.link == null){
+                Console.WriteLine("Element "+i+" not found");
+            }else{
+                n.link = n.link.link;
+                Console.WriteLine("Node with element "+i+" has been deleted successfully");
+            }    
+        }
+
+        public void ReverseList()
+        {
+            if(start == null){
+                Console.WriteLine("Action can't be executed, The link is empty");
+                return;
+            }
+            Node n, prev, next;
+            prev = null;
+            n = start;
+            while(n != null){
+                next = n.link;
+                n.link = prev;
+                prev = n;
+                n = next;
+            }
+            start = prev;
         }
     }
 }

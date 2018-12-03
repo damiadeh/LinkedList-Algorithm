@@ -11,3 +11,6 @@ LINKED LIST. A console app that runs different algorithm on a linked list || Dat
  8. Insert a node in a given position  
  9. Delete first node  
  10. Delete last node  
+ 11. Delete a node
+ 12. Reverse the list
+ 13. ####

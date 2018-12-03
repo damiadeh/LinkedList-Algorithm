@@ -27,6 +27,8 @@ namespace LinkedList
                 Console.WriteLine("8. Insert a node in a given position");
                 Console.WriteLine("9. Delete first node");
                 Console.WriteLine("10. Delete last node");
+                Console.WriteLine("11. Delete a node");
+                Console.WriteLine("12. Reverse the list");
 
                 Console.WriteLine("Enter your choice");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -77,15 +79,35 @@ namespace LinkedList
                         a = Convert.ToInt32(Console.ReadLine());
                         list.InsertNodeSpecific(data, a);
                         break;
+                    case 9:
+                        list.DeleteFirstNode();
+                        break;
+                    case 10:
+                        list.DeleteLastNode();
+                        break;
+                    case 11:
+                        Console.WriteLine("Enter the element you want to delete:");
+                        data = Convert.ToInt32(Console.ReadLine());
+                        list.DeleteNode(data);
+                        break;
+                    case 12:
+                        list.ReverseList();
+                        break;
                     default:
                         Console.WriteLine("Wrong Choice");
                         break;
                 }
                 Console.WriteLine("Enter 1 to continue or 0 to quit");
-                int stateCode = Convert.ToInt16(Console.ReadLine());
-                if(stateCode == 0){
+                
+                try{
+                    int stateCode = Convert.ToInt16(Console.ReadLine());
+                    if(stateCode == 0){
                     state = false;
+                    }
+                }catch(Exception){
+
                 }
+                
             }
             Console.WriteLine("Exiting.....");
             Console.WriteLine("Bye :-/");
